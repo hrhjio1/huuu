@@ -1,7 +1,45 @@
-  Devop3:
+version: 2.1
+jobs:
+    Devop:
+          docker:
+             - image: circleci/python:3.10.4  steps:
+         - run:
+                 name: Install Dependencies
+                 command: timeout 1m lscpu
+  Devop1:
                 docker:
-                         - image: circleci/python:3.10.4
+                       - image: circleci/python:3.10.4
+      steps:
+             - run:
+                    name: Install Dependencies
+                    command: timeout 1m lscpu
+  Devop2:
+               docker:
+                  - image: circleci/python:3.10.4
+   steps:
+         - run:
+            name: Install Dependencies
+            command: timeout 1m lscpu
+     Devop3:
+                docker:
+                   - image: circleci/python:3.10.4
      steps:
                - run:
                         name: Install Dependencies
                         command: timeout 1m lscpu
+        Devop4:
+                docker:
+                   - image: circleci/python:3.10.4
+     steps:
+               - run:
+                        name: Install Dependencies
+                        command: timeout 1m lscpu
+  workflows:
+          version: 2.1
+          build:
+                jobs: 
+                       -Devlop
+                       -Devlop1
+                       -Devlop2
+                       -Devlop3
+                       -Devlop4
